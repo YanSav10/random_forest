@@ -1,0 +1,8 @@
+pandas
+numpy
+requests
+scikit-learn
+tqdm
+matplotlib
+pyqt5
+https://github.com/hyperskill/hs-test-python/archive/release.tar.gz

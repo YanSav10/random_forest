@@ -1,0 +1,13 @@
+type: hyperskill
+title: Random Forest from Scratch
+language: English
+summary: "<p>In this project, we will dive into implementing one of the most popular\
+  \ while simple enough ensemble algorithms —\_Random forest. Implement the entire\
+  \ algorithm from scratch\_using\_<code>numpy</code>. Test it on the\_<code>titanic</code>\_\
+  dataset from\_<code>sklearn</code>.</p><br/><br/>Learn more at <a href=\"https://hyperskill.org/projects/354?utm_source=ide&utm_medium=ide&utm_campaign=ide&utm_content=project-card\"\
+  >https://hyperskill.org/projects/354</a>"
+programming_language: Python
+environment: unittest
+content:
+  - Random Forest from Scratch
+mode: Study

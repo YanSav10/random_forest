@@ -1,0 +1,95 @@
+type: edu
+files:
+  - name: test/__init__.py
+    visible: false
+    learner_created: false
+  - name: test/tests.py
+    visible: false
+    text: |
+      import re
+      
+      from hstest import StageTest, CheckResult, dynamic_test, TestedProgram
+      
+      # The source data I will test on
+      true_data = 0.797
+      pattern = r"^[0-1][.][0-9]{1,3}$"
+      
+      
+      class ForestTest(StageTest):
+      
+          @dynamic_test()
+          def test1(self):
+              t = TestedProgram()
+              reply = t.start()
+      
+              if len(reply) == 0:
+                  return CheckResult.wrong("No output was printed!")
+      
+              match = re.match(pattern=pattern, string=reply)
+      
+              if not match:
+                  return CheckResult.wrong("The result should be a decimal number rounded to three decimal places!")
+      
+              reply = float(reply)
+              tolerance = 0.1
+      
+              # Getting the student's results from the reply
+      
+              if tolerance:
+                  if not (abs((reply - true_data) / true_data) < tolerance):
+                      return CheckResult.wrong('Incorrect value.')
+      
+              return CheckResult.correct()
+      
+      
+      if __name__ == '__main__':
+          ForestTest.run_tests()
+    learner_created: false
+  - name: Student.py
+    visible: true
+    text: |
+      import numpy as np
+      import pandas as pd
+      
+      from sklearn.model_selection import train_test_split
+      
+      np.random.seed(52)
+      
+      
+      def convert_embarked(x):
+          if x == 'S':
+              return 0
+          elif x == 'C':
+              return 1
+          else:
+              return 2
+      
+      
+      if __name__ == '__main__':
+          data = pd.read_csv('https://www.dropbox.com/s/4vu5j6ahk2j3ypk/titanic_train.csv?dl=1')
+      
+          data.drop(
+              ['PassengerId', 'Name', 'Ticket', 'Cabin'],
+              axis=1,
+              inplace=True
+          )
+          data.dropna(inplace=True)
+      
+          # Separate these back
+          y = data['Survived'].astype(int)
+          X = data.drop('Survived', axis=1)
+      
+          X['Sex'] = X['Sex'].apply(lambda x: 0 if x == 'male' else 1)
+          X['Embarked'] = X['Embarked'].apply(lambda x: convert_embarked(x))
+      
+          X_train, X_val, y_train, y_val = \
+              train_test_split(X.values, y.values, stratify=y, train_size=0.8)
+      
+          # Make your code here...
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/29144#comment
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 08 May 2024 08:39:40 UTC"
+record: 1

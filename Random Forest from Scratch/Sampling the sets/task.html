@@ -1,0 +1,25 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>A significant part of the Random forest model is the <strong>bootstrap sampling.</strong> We assume you are already familiar with the concept, so we will make a simple reminder: to make this sampling, we randomly sample our dataset <strong>with replacement</strong>.</p>
+<p>In this stage, create a function <code class="language-python">create_bootstrap()</code> that takes the features and the target values as parameters and returns a bootstrap sample. We recommend using the <code class="language-python">np.random.choice</code> to create a mask and then return only the masked objects. The idea of a mask is that it contains a list of randomly chosen indexes of records within a given dataset. The length of this list is equal to the length of the dataset, as it is required by the bootstrap. Take a look at the example below of how the mask works:</p>
+<pre><code class="language-python">X = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+mask = [2, 1, 1]
+
+print(X[mask])</code></pre>
+<p>The result is:</p>
+<pre><code class="language-no-highlight">[[7 8 9]
+ [4 5 6]
+ [4 5 6]]</code></pre>
+<p></p><div class="alert alert-warning">In this stage, you'll deal with randomness. For the sake of our tests, use the <code class="language-python">np.random.choice</code> function once with the <code class="language-python">52</code> seed (do not remove the <code class="language-python">np.random.seed(52)</code> line from the beginning of the file). Also, note that <code class="language-python">create_bootstrap()</code> should be called right after the <code class="language-python">train_test_split()</code> call. </div>
+<h5 id="objectives">Objectives</h5>
+<ol>
+<li>Create the <code class="language-python">create_bootstrap</code> function;</li>
+<li>Use it to create a bootstrap sample from your train data and print the<strong> first ten items</strong> of the resulting sample <code class="language-python">y</code>-s.</li>
+</ol>
+<h5 id="example">Example</h5>
+<p><strong>Example 1</strong>: <em>example of the output</em></p>
+<pre><code class="language-no-highlight">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</code></pre>
+</div>

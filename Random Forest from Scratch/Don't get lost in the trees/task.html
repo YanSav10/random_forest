@@ -1,0 +1,14 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>In the last stage, test whether the Random forest algorithm does not overfit when you increase the number of trees. We suggest you try various values for <code class="java">n_trees</code> and check whether that is true.</p>
+<p>Except for the number of trees, everything remains the same as in the previous stage: fit the algorithm on the entire training set and calculate the accuracy score using the test set.</p>
+<h5 id="objectives">Objectives</h5>
+<ol>
+<li>Fit your <code class="java">RandomForestClassifier</code> on the whole train set using <code class="java">n_trees</code> ranging from <code class="java">1</code> to <code class="java">600</code> with a step of <code class="java">1</code>. This process might take a while, keep calm and wait a bit. For each classifier, calculate the resulting accuracy on the test set.</li>
+<li>Print the<strong> </strong>first 20 of the resulting accuracy values rounded to three digits after the dot (for example, 3.141);</li>
+<li>Plot the resulting dependence of accuracy from the number of trees. Do you have the expected behavior of your model? This objective is optional, and it won't be part of the test.</li>
+</ol>
+<h5 id="example">Example</h5>
+<p><strong>Example 1</strong>: <em>example of the output</em></p>
+<pre><code class="language-no-highlight">[0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.700, 0.720]</code></pre>
+</div>

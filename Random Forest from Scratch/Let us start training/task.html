@@ -1,0 +1,39 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>You're familiar with <code class="java">DecisionTreeClassifier</code> and implemented the <code class="java">create_bootstrap</code> function, now it is time to start creating a Random forest class.</p>
+<p>We suggest you use this snippet when building the class:</p>
+<pre><code class="java">class RandomForestClassifier():
+    def __init__(self, n_trees=10, max_depth=np.iinfo(np.int64).max, min_error=1e-6):
+
+        self.n_trees = n_trees
+        self.max_depth = max_depth
+        self.min_error = min_error
+
+        self.forest = []
+        self.is_fit = False
+
+    def fit(self, X_train, y_train):
+
+        # Your code for Stage 3 here
+
+        self.is_fit = True
+
+    def predict(self, X_test):
+
+        if not self.is_fit:
+            raise AttributeError('The forest is not fit yet! Consider calling .fit() method.')
+
+        # Your code for Stage 4 here
+</code></pre>
+<p>In this stage, implement just the <code class="java">.fit</code> method. Note that we both<strong> </strong>use the bootstrap with Random forest and reduce the number of features available for each tree. To achieve that, use the <code class="java">max_features='sqrt'</code> parameter in <code class="java">DecisionTreeClassifier</code> since <code class="java">sqrt</code> is recommended for the classification task. Also set the <code class="java">max_depth</code> and <code class="java">min_impurity_decrease</code> parameters. You can use the <code class="java">tqdm</code> package to track the fitting process, but it is not mandatory.</p>
+<p></p><div class="alert alert-warning">To test your solution, use the first tree of your forest to make predictions on the test set. Simply take the first element of the <code class="java">forest</code> attribute. After that, calculate the resulting accuracy.</div>
+<h5 id="objectives">Objectives</h5>
+<ol>
+<li>Using the snippet provided, implement the <code class="java">RandomForestClassifier</code>'s <code class="java">.fit</code> method. Create a bootstrap sample for each new tree in the forest, and each tree should have <code class="java">max_features='sqrt'</code>. As an additional feature, we suggest you use the <a href="https://tqdm.github.io/" rel="noopener noreferrer nofollow" target="_blank">tqdm package</a> to visualize the progress when fitting the random forest. Simply wrap the list of trees with <code class="java">tqdm()</code></li>
+<li>Use the <strong>first tree </strong>of the forest to make predictions on the test set.</li>
+<li>Calculate the accuracy of the test set using the predictions. Print the resulting accuracy rounded to three digits after the dot (for example, 3.141).</li>
+</ol>
+<h5 id="example">Example</h5>
+<p><strong>Example 1</strong>: <em>example of the output</em></p>
+<pre><code class="language-no-highlight">0.001</code></pre>
+</div>
